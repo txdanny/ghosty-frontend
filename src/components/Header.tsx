@@ -31,7 +31,7 @@ const Header: FC = () => {
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className={`py-2 lg:py-2 px-6 lg:px-12 transition-all duration-200 ${
+        className={`py-2 lg:py-3 px-6 lg:px-12 transition-all duration-200 ${
           scrolled
             ? "bg-black/20 backdrop-blur-sm md:w-[700px] w-full md:rounded-b-full rounded-b-none md:border border-b border-[#72d2f52c] "
             : "bg-black/20 backdrop-blur-sm md:mt-5 md:w-[700px] w-full md:rounded-full rounded-b-none md:border border-b border-[#72d2f52c]"

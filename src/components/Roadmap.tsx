@@ -151,7 +151,7 @@ export default function Roadmap() {
                       transition={{ type: "spring", stiffness: 300 }}
                     >
                       {/* Card Background */}
-                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#72d2f5a9] to-[#72d2f52c] p-[2px] opacity-30 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="absolute inset-0 rounded-2xl border border-[#72d2f54f] cursor-pointer opacity-30 group-hover:opacity-100 transition-opacity duration-300">
                         <div className="h-full w-full bg-[#05171a] rounded-2xl" />
                       </div>
 
