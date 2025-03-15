@@ -54,12 +54,24 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
+          {/* Header */}
           <motion.div
-            className="inline-block"
-            transition={{ type: "spring", stiffness: 400 }}
+            className="text-center mb-8 sm:mb-16"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
           >
-            <h2 className="text-6xl font-bold text-white mb-6">About us</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+              About us
+            </h2>
+            <motion.div
+              className="h-1 w-24 bg-gradient-to-r from-[#72d3f5] to-[#a5f7ff] mx-auto rounded-full"
+              initial={{ width: 0 }}
+              whileInView={{ width: 96 }}
+              transition={{ delay: 0.3 }}
+            />
           </motion.div>
+
           <motion.p
             className="text-[#a5f7ff]/80 text-xl max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}

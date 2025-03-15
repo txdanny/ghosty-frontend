@@ -33,7 +33,7 @@ const Header: FC = () => {
         className={`py-2 lg:py-2 px-6 lg:px-12 transition-all duration-200 ${
           scrolled
             ? "bg-black/20 backdrop-blur-sm w-[700px] rounded-b-full "
-            : "bg-black/20 backdrop-blur-sm mt-5 w-[700px] rounded-full"
+            : "bg-black/20 backdrop-blur-sm md:mt-5 w-[700px] md:rounded-full rounded-b-full"
         }`}
       >
         <div className="flex items-center justify-between gap-4">
@@ -144,7 +144,7 @@ const Header: FC = () => {
           {isMenuOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
+              animate={{ opacity: 1, height: 400 }}
               exit={{ opacity: 0, height: 0 }}
               className="md:hidden mt-4 pb-4"
             >

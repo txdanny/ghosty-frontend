@@ -21,7 +21,7 @@ export default function Home() {
       <Hero />
       <About />
       <Team />
-      {/* <Roadmap /> */}
+      <Roadmap />
       <Terms />
       <Footer />
     </main>

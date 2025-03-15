@@ -44,7 +44,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden bg-gradient-to-b from-[#05171a] to-[#022632]">
+    <section className="min-h-screen h-screen flex items-center justify-center px-4 relative overflow-hidden bg-gradient-to-b from-[#05171a] to-[#022632]">
       {/* Floating particles */}
       {[...Array(20)].map((_, i) => (
         <motion.div
@@ -67,14 +67,14 @@ export default function Hero() {
       ))}
 
       <motion.div
-        className="max-w-7xl mx-auto text-center relative z-10"
+        className="max-w-7xl mx-auto text-center relative z-10 h-full flex flex-col justify-center"
         initial="hidden"
         animate="visible"
         variants={containerVariants}
       >
         {/* Main title with word animation */}
         <motion.h1
-          className="text-4xl sm:text-6xl md:text-[80px] uppercase font-bold mb-6 relative text-white"
+          className="text-4xl sm:text-6xl md:text-[90px] uppercase font-bold mb-6 relative text-white"
           variants={containerVariants}
         >
           {titleWords.map((word, index) => (
@@ -102,14 +102,6 @@ export default function Hero() {
               ))}
             </motion.span>
           ))}
-
-          {/* Gradient underline */}
-          <motion.div
-            className="h-1 bg-gradient-to-r from-[#72d3f5] via-[#a5f7ff] to-[#72d3f5] absolute bottom-0 left-0"
-            initial={{ width: "0%" }}
-            animate={{ width: "100%" }}
-            transition={{ duration: 1, delay: 1 }}
-          />
         </motion.h1>
 
         {/* Subtitle with character animation */}
