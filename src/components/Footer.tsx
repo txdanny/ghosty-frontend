@@ -105,7 +105,7 @@ export default function Footer() {
                   alt="NFT Platform"
                   width={120}
                   height={40}
-                  className="mx-auto md:mx-0"
+                  className="mx-auto md:mx-0 rounded-md"
                 />
               </Link>
               <p className="text-gray-400 text-sm text-center md:text-left">

@@ -100,32 +100,22 @@ export default function Team() {
               className="relative group"
             >
               {/* Main card container with glass effect */}
-              <motion.div className="relative bg-black/5 backdrop-blur-lg rounded-2xl sm:rounded-[2.5rem] rounded-tl-lg p-6 sm:p-8 text-center overflow-hidden border-2 border-[#72d2f513]">
+              <motion.div className="relative bg-black/5 backdrop-blur-lg rounded-2xl sm:rounded-[2rem] rounded-tl-lg p-6 sm:p-8 text-center overflow-hidden border-2 border-[#72d2f513]">
                 {/* Profile image container */}
                 <motion.div
                   className="relative w-28 h-28 sm:w-36 sm:h-36 mx-auto mb-4 sm:mb-6"
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  {/* Rotating border effect */}
-                  <motion.div
-                    className="absolute inset-0 rounded-full"
-                    style={{
-                      background:
-                        "conic-gradient(from 0deg, #72d3f5, #a5f7ff, #72d3f5)",
-                      padding: "3px",
-                    }}
-                  >
-                    {/* Profile image */}
-                    <div className="w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-[#72d3f5]/30 to-[#a5f7ff]/30 backdrop-blur-sm">
-                      <div className="w-full h-full bg-[#72d3f5]/20 transform hover:scale-110 transition-transform duration-500" />
-                      <Image
-                        src={"/image/logo.png"}
-                        layout="fill"
-                        alt="Avatar"
-                        className="object-cover"
-                      />
-                    </div>
-                  </motion.div>
+                  {/* Profile image */}
+                  <div className="w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-[#72d3f5]/30 to-[#a5f7ff]/30 backdrop-blur-sm">
+                    <div className="w-full h-full bg-[#72d3f5]/20 transform hover:scale-110 transition-transform duration-500" />
+                    <Image
+                      src={"/image/logo.png"}
+                      layout="fill"
+                      alt="Avatar"
+                      className="object-cover"
+                    />
+                  </div>
                 </motion.div>
 
                 {/* Content with hover effects */}
