@@ -33,8 +33,8 @@ const Header: FC = () => {
         animate={{ y: 0 }}
         className={`py-2 lg:py-2 px-6 lg:px-12 transition-all duration-200 ${
           scrolled
-            ? "bg-black/20 backdrop-blur-sm w-[700px] md:rounded-b-full rounded-b-none border border-[#72d2f52c] "
-            : "bg-black/20 backdrop-blur-sm md:mt-5 w-[700px] md:rounded-full rounded-b-none border border-[#72d2f52c]"
+            ? "bg-black/20 backdrop-blur-sm md:w-[700px] w-full md:rounded-b-full rounded-b-none md:border border-b border-[#72d2f52c] "
+            : "bg-black/20 backdrop-blur-sm md:mt-5 md:w-[700px] w-full md:rounded-full rounded-b-none md:border border-b border-[#72d2f52c]"
         }`}
       >
         <div className="flex items-center justify-between gap-4">
@@ -121,17 +121,17 @@ const Header: FC = () => {
                   animate={
                     isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }
                   }
-                  className="block w-8 h-0.5 bg-white"
+                  className="block w-6 h-0.5 bg-white"
                 />
                 <motion.span
                   animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-                  className="block w-8 h-0.5 bg-white"
+                  className="block w-6 h-0.5 bg-white"
                 />
                 <motion.span
                   animate={
                     isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }
                   }
-                  className="block w-8 h-0.5 bg-white"
+                  className="block w-6 h-0.5 bg-white"
                 />
               </div>
             </motion.button>
@@ -143,7 +143,7 @@ const Header: FC = () => {
           {isMenuOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 400 }}
+              animate={{ opacity: 1, height: 2000 }}
               exit={{ opacity: 0, height: 0 }}
               className="md:hidden mt-4 pb-4"
             >
