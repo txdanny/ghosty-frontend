@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "./font.css";
+
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -16,7 +19,13 @@
   }
 }
 
+html {
+  scroll-behavior: smooth !important;
+}
+
+
 body {
+  font-family: "poppins", sans-serif !important;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -25,6 +34,7 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
 
 .spline-watermark {
   display: none !important;

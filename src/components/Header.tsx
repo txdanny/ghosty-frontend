@@ -33,8 +33,8 @@ const Header: FC = () => {
         animate={{ y: 0 }}
         className={`py-2 lg:py-2 px-6 lg:px-12 transition-all duration-200 ${
           scrolled
-            ? "bg-black/20 backdrop-blur-sm w-[700px] md:rounded-b-full border border-[#72d2f52c] "
-            : "bg-black/20 backdrop-blur-sm md:mt-5 w-[700px] md:rounded-full rounded-b-full border border-[#72d2f52c]"
+            ? "bg-black/20 backdrop-blur-sm w-[700px] md:rounded-b-full rounded-b-none border border-[#72d2f52c] "
+            : "bg-black/20 backdrop-blur-sm md:mt-5 w-[700px] md:rounded-full rounded-b-none border border-[#72d2f52c]"
         }`}
       >
         <div className="flex items-center justify-between gap-4">
@@ -45,13 +45,15 @@ const Header: FC = () => {
               className="relative z-10 w-12 h-12 rounded-full overflow-hidden"
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <Image
-                src="/image/logo.png"
-                alt="Logo"
-                width={100} // specify the width you want
-                height={100} // specify the height you want
-                className="object-cover"
-              />
+              <Link href="/">
+                <Image
+                  src="/image/logo.png"
+                  alt="Logo"
+                  width={100} // specify the width you want
+                  height={100} // specify the height you want
+                  className="object-cover"
+                />
+              </Link>
             </motion.div>
 
             {/* Rotating Ring */}
