@@ -93,7 +93,7 @@ export default function Terms() {
                 }
               >
                 <div className="flex items-center justify-between">
-                  <motion.h3 className="text-xl font-bold text-white flex items-center gap-4">
+                  <motion.h3 className="text-xl font-semibold text-gray-300 flex items-center gap-4">
                     <span className="text-[#72d3f5]">
                       {(index + 1).toString().padStart(2, "0")}
                     </span>

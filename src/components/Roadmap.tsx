@@ -1,13 +1,15 @@
 "use client";
 
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useRef, useEffect } from "react";
 
 export default function Roadmap() {
-  const ref = useRef(null);
+  const containerRef = useRef(null);
+  const progressRef = useRef(null);
+
   const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start 80%", "end 20%"],
+    target: containerRef,
+    offset: ["start start", "end end"],
   });
 
   const scaleY = useSpring(scrollYProgress, {
@@ -65,8 +67,8 @@ export default function Roadmap() {
 
   return (
     <section
-      className="py-20 px-4 bg-[#05171a] relative overflow-hidden"
-      ref={ref}
+      className="min-h-screen py-20 px-4 bg-[#05171a] relative overflow-hidden"
+      ref={containerRef}
       id="roadmap"
     >
       <div className="max-w-7xl mx-auto">
@@ -91,29 +93,42 @@ export default function Roadmap() {
         {/* Timeline Container */}
         <div className="relative">
           {/* Progress Line */}
-          <div className="absolute md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-[#72d3f5]/20 to-[#a5f7ff]/20">
+          <motion.div
+            ref={progressRef}
+            className="absolute md:left-1/2 left-[12px] top-0 bottom-0 w-1 bg-gradient-to-b from-[#72d3f5]/20 to-[#a5f7ff]/20"
+          >
             <motion.div
               className="absolute top-0 left-0 w-full bg-gradient-to-b from-[#72d3f5] via-[#a5f7ff] to-[#72d3f5]"
-              style={{ scaleY, transformOrigin: "top" }}
+              style={{
+                scaleY,
+                transformOrigin: "top",
+                height: "100%",
+              }}
             />
-          </div>
+          </motion.div>
 
           <div className="space-y-8 md:space-y-16">
             {milestones.map((milestone, index) => (
               <div key={index} className="relative">
-                {/* Desktop Time Indicator - Hidden on Mobile */}
-
                 <motion.div
                   className={`flex flex-col ${
-                    index % 2 == 0 ? "md:flex-row" : "md:flex-row-reverse"
-                  } gap-4 md:gap-8`}
+                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                  } gap-4 md:gap-8 items-center`}
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, margin: "-100px" }}
                 >
+                  {/* Timeline Node for Mobile */}
+                  <motion.div
+                    className="absolute left-[4px] md:hidden w-5 h-5 bg-[#72d3f5] rounded-full"
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{ delay: 0.2 }}
+                  />
+
                   {/* Content Card */}
                   <motion.div
-                    className={`flex-1 ml-2 md:ml-0 md:w-[calc(50%-3rem)] roadmap-card`}
+                    className={`flex-1 ml-8 md:ml-0 md:w-[calc(50%-3rem)] roadmap-card`}
                     variants={{
                       hidden: {
                         opacity: 0,
@@ -142,24 +157,15 @@ export default function Roadmap() {
 
                       {/* Card Content */}
                       <div className="relative p-6 md:p-8">
-                        {/* Mobile Quarter Badge */}
-                        <div className="md:hidden mb-4">
+                        <div className="mb-4">
                           <motion.div
                             className="bg-[#72d3f5]/20 text-[#72d3f5] font-bold px-4 py-2 rounded-full inline-block"
-                            whileHover={{ scale: 1.05 }}
+                            initial={{ scale: 0 }}
+                            whileInView={{ scale: 1 }}
                           >
                             {milestone.quarter}
                           </motion.div>
                         </div>
-
-                        <motion.div
-                          className="text-2xl md:text-3xl mb-4"
-                          initial={{ scale: 0 }}
-                          whileInView={{ scale: 1 }}
-                          transition={{ delay: 0.2 }}
-                        >
-                          {milestone.icon}
-                        </motion.div>
 
                         <h3 className="text-xl md:text-2xl font-bold text-[#72d3f5] mb-3">
                           {milestone.title}
@@ -180,11 +186,22 @@ export default function Roadmap() {
                       </div>
                     </motion.div>
                   </motion.div>
-                  {/* Timeline Node */}
-                  <div className="relative z-10 flex items-center md:block ml-4 md:ml-0">
+
+                  {/* Timeline Node for Desktop */}
+                  <div
+                    className={`hidden md:block relative z-10 ${
+                      index % 2 === 0 ? "-left-1" : "left-2"
+                    }`}
+                  >
+                    <motion.div
+                      className="w-5 h-5 bg-[#72d3f5] rounded-full"
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      transition={{ delay: 0.2 }}
+                    />
                     {/* Connecting Line */}
                     <motion.div
-                      className={`hidden md:block absolute top-1/2 h-[2px] bg-gradient-to-r ${
+                      className={`absolute top-1/2 h-[2px] w-12 bg-gradient-to-r ${
                         index % 2 !== 0
                           ? "left-full from-[#72d3f5] to-transparent"
                           : "right-full from-transparent to-[#72d3f5]"
@@ -194,6 +211,7 @@ export default function Roadmap() {
                       transition={{ delay: 0.3 }}
                     />
                   </div>
+
                   {/* Spacer for desktop layout */}
                   <div className="hidden md:block md:w-[calc(50%-3rem)]" />
                 </motion.div>
