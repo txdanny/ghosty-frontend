@@ -45,6 +45,7 @@ export default function About() {
     <section
       className="py-20 px-4 bg-[#05171a] relative overflow-hidden"
       ref={ref}
+      id="about"
     >
       <div className="max-w-7xl mx-auto relative">
         {/* Header Section */}

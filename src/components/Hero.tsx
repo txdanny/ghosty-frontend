@@ -44,7 +44,10 @@ export default function Hero() {
   };
 
   return (
-    <section className="min-h-screen h-screen flex items-center justify-center px-4 relative overflow-hidden bg-gradient-to-b from-[#05171a] to-[#022632]">
+    <section
+      className="min-h-screen h-screen flex items-center justify-center px-4 relative overflow-hidden bg-gradient-to-b from-[#05171a] to-[#022632]"
+      id="#"
+    >
       {/* Floating particles */}
       {[...Array(20)].map((_, i) => (
         <motion.div

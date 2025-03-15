@@ -42,7 +42,10 @@ export default function Terms() {
   ];
 
   return (
-    <section className="py-20 px-4 bg-[#05171a]">
+    <section
+      className="py-20 px-4 bg-[#05171a] relative overflow-hidden"
+      id="terms"
+    >
       <motion.div
         className="max-w-7xl mx-auto"
         initial={{ opacity: 0, y: 20 }}
@@ -56,13 +59,13 @@ export default function Terms() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
             Terms & Conditions
           </h2>
           <motion.div
-            className="h-1 w-24 bg-gradient-to-r from-[#72d3f5] to-[#a5f7ff] mx-auto rounded-full"
+            className="h-1 w-32 bg-gradient-to-r from-[#72d3f5] to-[#a5f7ff] mx-auto rounded-full"
             initial={{ width: 0 }}
-            whileInView={{ width: 96 }}
+            whileInView={{ width: 250 }}
             transition={{ delay: 0.3 }}
           />
         </motion.div>
@@ -78,7 +81,7 @@ export default function Terms() {
               className="relative group"
             >
               {/* Card with gradient border */}
-              <div className="absolute inset-0 bg-gradient-to-r from-[#72d2f53f] to-[#72d2f53f] rounded-2xl p-[1px] opacity-50 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#72d2f53f] to-[#72d2f53f] rounded-2xl p-[2px] opacity-50 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="h-full w-full bg-[#05171a] rounded-2xl" />
               </div>
 

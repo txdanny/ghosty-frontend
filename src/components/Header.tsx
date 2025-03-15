@@ -23,6 +23,7 @@ const Header: FC = () => {
     { title: "About", href: "#about" },
     { title: "Team", href: "#team" },
     { title: "Roadmap", href: "#roadmap" },
+    { title: "Terms", href: "#terms" },
   ];
 
   return (
@@ -32,8 +33,8 @@ const Header: FC = () => {
         animate={{ y: 0 }}
         className={`py-2 lg:py-2 px-6 lg:px-12 transition-all duration-200 ${
           scrolled
-            ? "bg-black/20 backdrop-blur-sm w-[700px] rounded-b-full "
-            : "bg-black/20 backdrop-blur-sm md:mt-5 w-[700px] md:rounded-full rounded-b-full"
+            ? "bg-black/20 backdrop-blur-sm w-[700px] md:rounded-b-full border border-[#72d2f52c] "
+            : "bg-black/20 backdrop-blur-sm md:mt-5 w-[700px] md:rounded-full rounded-b-full border border-[#72d2f52c]"
         }`}
       >
         <div className="flex items-center justify-between gap-4">
@@ -101,7 +102,7 @@ const Header: FC = () => {
               >
                 <Link
                   href={item.href}
-                  className="text-white hover:text-[#232424] transition-colors relative group"
+                  className="text-white hover:text-[#72d3f5] transition-colors relative group"
                 >
                   {item.title}
                   <motion.span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#72d3f5] group-hover:w-full transition-all duration-300" />

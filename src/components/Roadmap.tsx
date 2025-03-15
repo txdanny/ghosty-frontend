@@ -7,7 +7,7 @@ export default function Roadmap() {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end end"],
+    offset: ["start 80%", "end 20%"],
   });
 
   const scaleY = useSpring(scrollYProgress, {
@@ -64,7 +64,11 @@ export default function Roadmap() {
   ];
 
   return (
-    <section className="py-12 md:py-20 px-4 bg-[#05171a]" ref={ref}>
+    <section
+      className="py-20 px-4 bg-[#05171a] relative overflow-hidden"
+      ref={ref}
+      id="roadmap"
+    >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
@@ -87,9 +91,9 @@ export default function Roadmap() {
         {/* Timeline Container */}
         <div className="relative">
           {/* Progress Line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-[#72d3f5]/20">
+          <div className="absolute md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-[#72d3f5]/20 to-[#a5f7ff]/20">
             <motion.div
-              className="absolute top-0 left-0 w-full bg-[#72d3f5]"
+              className="absolute top-0 left-0 w-full bg-gradient-to-b from-[#72d3f5] via-[#a5f7ff] to-[#72d3f5]"
               style={{ scaleY, transformOrigin: "top" }}
             />
           </div>
@@ -109,7 +113,7 @@ export default function Roadmap() {
                 >
                   {/* Content Card */}
                   <motion.div
-                    className={`flex-1 ml-8 md:ml-0 md:w-[calc(50%-3rem)] roadmap-card`}
+                    className={`flex-1 ml-2 md:ml-0 md:w-[calc(50%-3rem)] roadmap-card`}
                     variants={{
                       hidden: {
                         opacity: 0,
@@ -132,7 +136,7 @@ export default function Roadmap() {
                       transition={{ type: "spring", stiffness: 300 }}
                     >
                       {/* Card Background */}
-                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#72d3f5] to-[#a5f7ff] p-[1px] opacity-30 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#72d2f5a9] to-[#72d2f52c] p-[2px] opacity-30 group-hover:opacity-100 transition-opacity duration-300">
                         <div className="h-full w-full bg-[#05171a] rounded-2xl" />
                       </div>
 
