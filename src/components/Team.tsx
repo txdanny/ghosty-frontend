@@ -61,7 +61,10 @@ export default function Team() {
   }, []);
 
   return (
-    <section className="py-12 sm:py-20 px-4 bg-[#05171a]">
+    <section
+      className="py-20 px-4 bg-[#05171a] relative overflow-hidden"
+      id="team"
+    >
       <motion.div
         className="max-w-7xl mx-auto"
         initial="hidden"
@@ -97,11 +100,10 @@ export default function Team() {
               className="relative group"
             >
               {/* Main card container with glass effect */}
-              <motion.div className="relative bg-black/5 backdrop-blur-lg rounded-2xl sm:rounded-[2.5rem] rounded-tl-lg p-6 sm:p-8 text-center overflow-hidden border border-[#72d2f513]">
+              <motion.div className="relative bg-black/5 backdrop-blur-lg rounded-2xl sm:rounded-[2.5rem] rounded-tl-lg p-6 sm:p-8 text-center overflow-hidden border-2 border-[#72d2f513]">
                 {/* Profile image container */}
                 <motion.div
                   className="relative w-28 h-28 sm:w-36 sm:h-36 mx-auto mb-4 sm:mb-6"
-                  whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   {/* Rotating border effect */}
@@ -124,24 +126,6 @@ export default function Team() {
                       />
                     </div>
                   </motion.div>
-
-                  {/* Glow effect */}
-                  <motion.div
-                    className="absolute inset-0 rounded-full blur-md"
-                    style={{
-                      background:
-                        "radial-gradient(circle, #72d3f5 0%, transparent 70%)",
-                    }}
-                    animate={{
-                      opacity: [0.2, 0.4, 0.2],
-                      scale: [0.9, 1.1, 0.9],
-                    }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  />
                 </motion.div>
 
                 {/* Content with hover effects */}
@@ -169,19 +153,6 @@ export default function Team() {
                   transition={{ duration: 0.3 }}
                 />
               </motion.div>
-
-              {/* Background glow effect */}
-              <motion.div
-                className="absolute -inset-2 sm:-inset-4 rounded-2xl sm:rounded-[3rem] rounded-tl-xl bg-gradient-to-r from-[#72d3f5] to-[#a5f7ff] opacity-0 group-hover:opacity-10 blur-xl transition-all duration-500"
-                animate={{
-                  scale: [1, 1.05, 1],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
             </motion.div>
           ))}
         </motion.div>
