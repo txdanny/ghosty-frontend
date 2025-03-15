@@ -100,7 +100,7 @@ export default function Team() {
               className="relative group"
             >
               {/* Main card container with glass effect */}
-              <motion.div className="relative bg-black/5 backdrop-blur-lg rounded-2xl sm:rounded-[2rem] rounded-tl-lg p-6 sm:p-8 text-center overflow-hidden border-2 border-[#72d2f513]">
+              <motion.div className="relative bg-black/5 backdrop-blur-lg rounded-2xl sm:rounded-[1.5rem] rounded-tl-lg p-6 sm:p-8 text-center overflow-hidden border border-[#72d2f513]">
                 {/* Profile image container */}
                 <motion.div
                   className="relative w-28 h-28 sm:w-36 sm:h-36 mx-auto mb-4 sm:mb-6"

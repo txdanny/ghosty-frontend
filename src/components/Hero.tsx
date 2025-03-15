@@ -48,26 +48,65 @@ export default function Hero() {
       className="min-h-screen h-screen flex items-center justify-center px-4 relative overflow-hidden bg-gradient-to-b from-[#05171a] to-[#022632]"
       id="#"
     >
-      {/* Floating particles */}
-      {[...Array(20)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-1 h-1 bg-[#72d3f5] rounded-full"
-          style={{
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-          }}
-          animate={{
-            y: [0, -30, 0],
-            opacity: [0, 1, 0],
-          }}
-          transition={{
-            duration: Math.random() * 3 + 2,
-            repeat: Infinity,
-            delay: Math.random() * 2,
-          }}
-        />
-      ))}
+      {/* Professional Particle Animation */}
+      <div className="absolute inset-0 overflow-hidden">
+        {[...Array(30)].map((_, i) => {
+          const size = Math.random() * 3 + 1;
+          const isLarge = Math.random() > 0.8;
+
+          return (
+            <motion.div
+              key={i}
+              className={`absolute rounded-full ${
+                isLarge ? "bg-[#72d3f5]" : "bg-[#4a9cb5]"
+              }`}
+              style={{
+                width: size,
+                height: size,
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                filter: `blur(${Math.random() * 2}px)`,
+                boxShadow: isLarge
+                  ? "0 0 10px rgba(114, 211, 245, 0.5)"
+                  : "none",
+              }}
+              animate={{
+                y: [0, -100, 0],
+                x: [0, Math.sin(i) * 50, 0],
+                scale: [1, isLarge ? 1.5 : 1.2, 1],
+                opacity: [0, 0.8, 0],
+              }}
+              transition={{
+                duration: Math.random() * 5 + 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: Math.random() * 2,
+              }}
+              whileHover={{
+                scale: 2,
+                transition: { duration: 0.2 },
+              }}
+            />
+          );
+        })}
+      </div>
+
+      {/* Ambient Light Effect */}
+      <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-[#05171a] opacity-50" />
+
+      {/* Interactive Background Glow */}
+      <motion.div
+        className="absolute w-[500px] h-[500px] rounded-full bg-[#72d3f5] opacity-[0.15] blur-[100px]"
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.1, 0.15, 0.1],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
 
       <motion.div
         className="max-w-7xl mx-auto text-center relative z-10 h-full flex flex-col justify-center"

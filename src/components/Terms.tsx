@@ -81,7 +81,7 @@ export default function Terms() {
               className="relative group"
             >
               {/* Card with gradient border */}
-              <div className="absolute inset-0 bg-gradient-to-r from-[#72d2f53f] to-[#72d2f53f] rounded-2xl p-[2px] opacity-50 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute inset-0 rounded-2xl border border-[#72d2f54f] opacity-50 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="h-full w-full bg-[#05171a] rounded-2xl" />
               </div>
 

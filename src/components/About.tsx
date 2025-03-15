@@ -93,7 +93,7 @@ export default function About() {
         >
           {stats.map((stat, index) => (
             <motion.div key={index} className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#72d2f542] to-[#a5f7ff] rounded-2xl p-[1px] opacity-50 transition-opacity">
+              <div className="absolute inset-0 border border-[#72d2f54f] rounded-2xl p-[1px] opacity-50 transition-opacity">
                 <div className="h-full w-full bg-[#05171a] rounded-2xl" />
               </div>
               <div className="relative p-8 text-center">
@@ -143,7 +143,7 @@ export default function About() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.2 }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#72d2f542] to-[#72d2f542] rounded-xl p-[1px] opacity-50 transition-opacity">
+                  <div className="absolute inset-0 border border-[#72d2f54f] rounded-xl p-[1px] opacity-50 transition-opacity">
                     <div className="h-full w-full bg-[#05171a] rounded-xl" />
                   </div>
                   <div className="relative p-6 flex items-center gap-4">
