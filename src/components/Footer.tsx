@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
+import { FaDiscord, FaInstagram, FaTwitter } from "react-icons/fa";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -16,9 +17,9 @@ export default function Footer() {
       { name: "Roadmap", href: "#roadmap" },
     ],
     social: [
-      { name: "Twitter", href: "#", icon: "/icons/twitter.svg" },
-      { name: "Discord", href: "#", icon: "/icons/discord.svg" },
-      { name: "Instagram", href: "#", icon: "/icons/instagram.svg" },
+      { name: "Twitter", href: "#", icon: <FaTwitter /> },
+      { name: "Discord", href: "#", icon: <FaDiscord /> },
+      { name: "Instagram", href: "#", icon: <FaInstagram /> },
     ],
   };
 
@@ -73,7 +74,7 @@ export default function Footer() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
-                  className="w-full px-6 py-4 rounded-full bg-white/5 border border-white/10 text-white placeholder-white/50 focus:outline-none focus:border-[#72d3f5] transition-all duration-300"
+                  className="w-full px-6 outline-none py-4 rounded-full bg-white/5 border border-white/10 text-white placeholder-white/50 focus:outline-none focus:border-[#72d3f5] transition-all duration-300"
                 />
                 <motion.button
                   whileHover={{ scale: 1.02 }}
@@ -151,13 +152,7 @@ export default function Footer() {
                     className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#72d3f5]/20 transition-colors duration-300"
                   >
                     <span className="sr-only">{social.name}</span>
-                    <Image
-                      src={social.icon}
-                      alt={social.name}
-                      width={20}
-                      height={20}
-                      className="opacity-75 hover:opacity-100 transition-opacity"
-                    />
+                    {social.icon}
                   </motion.a>
                 ))}
               </div>

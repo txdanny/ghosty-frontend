@@ -98,62 +98,22 @@ export default function Roadmap() {
             {milestones.map((milestone, index) => (
               <div key={index} className="relative">
                 {/* Desktop Time Indicator - Hidden on Mobile */}
-                <div className="hidden md:block absolute top-8 left-[calc(50%_-_160px)] text-[#72d3f5] font-bold opacity-20 text-8xl -z-10">
-                  {milestone.quarter}
-                </div>
 
                 <motion.div
                   className={`flex flex-col ${
-                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                    index % 2 == 0 ? "md:flex-row" : "md:flex-row-reverse"
                   } gap-4 md:gap-8`}
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, margin: "-100px" }}
                 >
-                  {/* Timeline Node */}
-                  <div className="relative z-10 flex items-center md:block ml-4 md:ml-0">
-                    <motion.div
-                      className="w-8 h-8 md:w-12 md:h-12 rounded-full bg-gradient-to-r from-[#72d3f5] to-[#a5f7ff] p-[2px]"
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      transition={{ delay: 0.2 }}
-                    >
-                      <div className="w-full h-full rounded-full bg-[#05171a] flex items-center justify-center">
-                        <motion.div
-                          className="w-4 h-4 md:w-6 md:h-6 rounded-full bg-[#72d3f5]"
-                          animate={{
-                            scale: [1, 1.2, 1],
-                            opacity: [0.5, 1, 0.5],
-                          }}
-                          transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                          }}
-                        />
-                      </div>
-                    </motion.div>
-
-                    {/* Connecting Line */}
-                    <motion.div
-                      className={`hidden md:block absolute top-1/2 h-[2px] bg-gradient-to-r ${
-                        index % 2 === 0
-                          ? "left-full from-[#72d3f5] to-transparent"
-                          : "right-full from-transparent to-[#72d3f5]"
-                      }`}
-                      initial={{ width: 0 }}
-                      whileInView={{ width: "3rem" }}
-                      transition={{ delay: 0.3 }}
-                    />
-                  </div>
-
                   {/* Content Card */}
                   <motion.div
                     className={`flex-1 ml-8 md:ml-0 md:w-[calc(50%-3rem)] roadmap-card`}
                     variants={{
                       hidden: {
                         opacity: 0,
-                        x: index % 2 === 0 ? -50 : 50,
+                        x: index % 2 === 0 ? 50 : -50,
                         y: 20,
                       },
                       visible: {
@@ -169,7 +129,6 @@ export default function Roadmap() {
                   >
                     <motion.div
                       className="relative group h-full"
-                      whileHover={{ scale: 1.02 }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
                       {/* Card Background */}
@@ -217,7 +176,20 @@ export default function Roadmap() {
                       </div>
                     </motion.div>
                   </motion.div>
-
+                  {/* Timeline Node */}
+                  <div className="relative z-10 flex items-center md:block ml-4 md:ml-0">
+                    {/* Connecting Line */}
+                    <motion.div
+                      className={`hidden md:block absolute top-1/2 h-[2px] bg-gradient-to-r ${
+                        index % 2 !== 0
+                          ? "left-full from-[#72d3f5] to-transparent"
+                          : "right-full from-transparent to-[#72d3f5]"
+                      }`}
+                      initial={{ width: 0 }}
+                      whileInView={{ width: "3rem" }}
+                      transition={{ delay: 0.3 }}
+                    />
+                  </div>
                   {/* Spacer for desktop layout */}
                   <div className="hidden md:block md:w-[calc(50%-3rem)]" />
                 </motion.div>
