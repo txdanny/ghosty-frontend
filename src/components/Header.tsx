@@ -23,7 +23,7 @@ const Header: FC = () => {
     { title: "About", href: "#about" },
     { title: "Team", href: "#team" },
     { title: "Roadmap", href: "#roadmap" },
-    { title: "Terms", href: "#terms" },
+    { title: "T&C", href: "#terms" },
   ];
 
   return (
@@ -97,11 +97,7 @@ const Header: FC = () => {
             transition={{ delay: 0.2 }}
           >
             {navItems.map((item, index) => (
-              <motion.div
-                key={item.title}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
+              <motion.div key={item.title} whileTap={{ scale: 0.95 }}>
                 <Link
                   href={item.href}
                   className="text-white hover:text-[#72d3f5] transition-colors relative group"
